@@ -24,20 +24,12 @@ public class WorkerResource {
 
     private static Logger logger = LoggerFactory.getLogger(WorkerResource.class);
 
-    @Value("${test.config}")
-    private String testConfig;
 
     @Autowired
     private Environment environment;
 
     @Autowired
     private WorkerRepository workerRepository;
-
-    @GetMapping("/configs")
-    public ResponseEntity<List<Worker>> findConfigs(){
-        logger.info("CONFIG = " + testConfig);
-        return ResponseEntity.noContent().build();
-    }
 
     @GetMapping
     public ResponseEntity<List<Worker>> findAll(){
